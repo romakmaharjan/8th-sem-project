@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact us Form</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        body {
+            background-image: url('https://www.barraques.cat/pngfile/big/33-331478_the-most-beautiful-free-desktop-laptop-wide-screen.jpg');
+            background-size: cover;
+        }
+
+        .contact-us {
+            padding: 45px;
+            background: #FBFCFC;
+            opacity: 0.9;
+            width: 370px;
+            height: 450px;
+            margin: 50px auto;
+            border-radius: 30px;
+            position: relative;
+        }
+
+        .title {
+            letter-spacing: 5px;
+            color: #34495E;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-items {
+            width: 100%;
+            /* background-color: red; */
+        }
+
+        .form-items,
+        .input {
+            width: 100%;
+            margin-bottom: 12px;
+            padding: 5px 20px;
+            box-sizing: border-box;
+            background: #D6DBDF;
+            border: 0;
+            outline: none;
+            border-radius: 20px;
+
+        }
+
+        .form-items .input.message {
+            height: 110px;
+            resize: none;
+        }
+
+        .btn {
+            background:#6b778d;
+            text-align: center;
+            margin-top: 0px !important;
+            width: 100px;
+            color: rgb(255, 255, 255);
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 5px;
+            margin-left: 25%;
+            cursor: pointer;
+
+        }
+
+        .btn:hover {
+            background: #393e46;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form class="contact-us" action="mailto:linkinson7@gmail.com" method="post" enctype="text/plain">
+
+        <div class="title">
+            <h1>Contact us</h1>
+        </div>
+
+        <div class="form">
+            <div class="form-items">
+                <input type="text" class="input" placeholder="Username">
+            </div>
+
+            <div class="form-items">
+                <input type="text" class="input" placeholder="Email">
+            </div>
+
+            <div class="form-items">
+                <textarea class="input message" cols="30" rows="10" placeholder="Message..."></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </div>
+
+
+
+    </form>
+
+</body>
+
+</html>
+{% endblock %}

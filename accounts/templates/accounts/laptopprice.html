@@ -1,0 +1,477 @@
+{% extends "base.html" %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Laptop Products</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+body {
+	font-family: "Open Sans", sans-serif;
+	background: #dbdbdb;
+}
+
+.container{
+	padding: 0px;
+}
+
+
+
+h2 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 80px;
+}
+h2 b {
+	color: #ffc000;
+}
+h2::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	min-height: 330px;
+    text-align: center;
+	overflow: hidden;
+}
+.carousel .item .img-box {
+	height: 160px;
+	width: 100%;
+	position: relative;
+}
+.carousel .item img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.carousel .item h4 {
+	font-size: 18px;
+	margin: 10px 0;
+}
+.carousel .item .btn {
+	color: #333;
+    border-radius: 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-top: 5px;
+    line-height: 16px;
+}
+.carousel .item .btn:hover, .carousel .item .btn:focus {
+	color: #fff;
+	background: #000;
+	border-color: #000;
+	box-shadow: none;
+}
+.carousel .item .btn i {
+	font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+.carousel .thumb-wrapper {
+	text-align: center;
+}
+.carousel .thumb-content {
+	padding: 15px;
+}
+.carousel .carousel-control {
+	height: 100px;
+    width: 40px;
+    background: none;
+    margin: auto 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+.carousel .carousel-control i {
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    margin: -16px 0 0 0;
+    z-index: 5;
+    left: 0;
+    right: 0;
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+    font-weight: bold;
+}
+.carousel .item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.carousel .item-price strike {
+	color: #999;
+	margin-right: 5px;
+}
+.carousel .item-price span {
+	color: #86bd57;
+	font-size: 110%;
+}
+.carousel .carousel-control.left i {
+	margin-left: -3px;
+}
+.carousel .carousel-control.left i {
+	margin-right: -3px;
+}
+.carousel .carousel-indicators {
+	bottom: -50px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 4px;
+	border-radius: 50%;
+	border-color: transparent;
+}
+.carousel-indicators li {	
+	background: rgba(0, 0, 0, 0.2);
+}
+.carousel-indicators li.active {	
+	background: rgba(0, 0, 0, 0.6);
+}
+.star-rating li {
+	padding: 0;
+}
+.star-rating i {
+	font-size: 14px;
+	color: #ffc000;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Top <b>Laptops</b></h2>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+			<!-- Carousel indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>   
+			<!-- Wrapper for carousel items -->
+			<div class="carousel-inner">
+				<div class="item carousel-item active">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="data:image/jpeg;base64,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">
+								</div>
+								<div class="thumb-content">
+									<h4>Acer Aspire 7 A715-72G-79BH2 17</h4>
+									<p class="item-price"> <span>Rs.105,000.00</span></p>
+									<p class="ghn"> <span>Core™ i7-8750H 2.2GHz 1TB 8GB 15.6" (1920x1080) BT WIN10 Webcam NVIDIA® GTX 1050 4096MB OBSIDIAN BLACK Backlit Keyboard FP Reader</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/acer-aspire-7-a715-72g-79bh2-core-i7-8750h-1tb-8gb-156-1920x1080-bt-win10-nvidia-gtx-1050-4gb-obsidian-black-backlit-keyboard-fp-reader-i100818845-s1021332359.html?spm=a2a0e.searchlist.list.10.4ffe3eb8fM6ohz&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://itti.com.np/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/n/i/nitro5_gallery_02.png">
+								</div>
+								<div class="thumb-content">
+									<h4>Acer Nitro 5</h4>
+									<p class="item-price"> <span> Rs.90,000.00</span></p>
+									<p class="ghn"> <span>i5-8300H Processor 2.30. 15.6" LCD ComfyView (IPS) Technology Full HD Backlight Technology LED 1920 x 1080 8gb Ram 4 cell</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/acer-nitro-5-i5-8th-gen-8gb-1tb-4gb-nvidia-gtx-graphics-156-gaming-laptop-i100578767-s1020980802.html?spm=a2a0e.searchlist.list.3.715b5411AwJJVS&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>		
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://images-na.ssl-images-amazon.com/images/I/51oBjsy4CuL._AC_SY400_.jpg">
+								</div>
+								<div class="thumb-content">
+									<h4>Acer Spin SP314-51-59NM </h4>
+									<p class="item-price"><span>Rs.75,000.00</span></p>
+									<p class="ghn"><span>Intel Core i5-8250U 1.60GHz, 8GB,256GB SSD, 14"FHD(1920x1080) Touchsreen, Intel HD, 802.11ac+BT, Cam+Mic, Win 10 Liscence</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/acer-spin-3-core-i5-8250u-160ghz-8gb256gb-ssd-14fhd1920x1080-x360-ips-touchsreen-intel-uhd-graphics-ultra-slim-laptop-i100976210-s1021508745.html?spm=a2a0e.searchlist.list.7.5887f9a23MS6eT&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>								
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://static.acer.com/up/Resource/Acer/Laptops/Aspire_3/photogallery/20171101/Aspire-3-15_black_gallery_02.png">
+								</div>
+								<div class="thumb-content">
+									<h4>Acer Aspire 3 A315-21-92FX</h4>
+									<p class="item-price"> <span>Rs.45,000.00</span></p>
+									<p class="ghn"> <span>Acer Aspire 3 A315-21-92FX AMD A9-9420 3.00GHz, 4GB, 1TB, 15.6"HD (1366x768), Radeon R5, 802.11ac+BT, Cam+Mic, Win 10 genuine</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/acer-aspire-3-intel-celeron-4-gb-500-gb-133-hd-laptop-i100020384-s1015569865.html?spm=a2a0e.searchlist.list.1.1c3e1e93Rh6ieY&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://itti.com.np/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/g/7/g73.jpg">
+								</div>
+								<div class="thumb-content">
+									<h4>Dell G7 I7/16/1/256/1060 </h4>
+									<p class="item-price"> <span>Rs.160,000.00</span></p>
+									<p class="ghn"> <span>8th Generation Intel® Core™ i7-8750H Processor (6-Core, 9MB Cache, up to 4.1GHz w/ Turbo Boost).8 GB
+										Graphic GTX 1060 6GB</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/dell-g7-gaming-laptop-i100510756-s1020870212.html?spm=a2a0e.searchlist.list.1.5e797969InVybu&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://i.dell.com/is/image/DellContent//content/dam/global-site-design/product_images/dell_client_products/notebooks/g_series/15_5587_non_touch/pdp/laptop-g-series-g5-15-5587-pdp.jpg?fmt=jpg">
+								</div>
+								<div class="thumb-content">
+									<h4>Dell Inspiron G5 Gaming Laptop</h4>
+									<p class="item-price"> <span>Rs.120,000.00</span></p>
+									<p class="ghn"> <span>Dell Inspiron G5 Gaming Laptop 15.6-Inch Full HD Screen, Intel Core i7 i7-8750H, 128 GB SSD ,1TB HDD 8GB DDR4 Memory, NVIDIA GTX 1050ti 4GB Graphics, Windows 10</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-half-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/dell-inspiron-g5-gaming-laptop-156-fhd-intel-core-i7-8750h-nvidia-gtx1050ti-4gb-ddr5128-gb-ssd-1tb-hdd-8-gb-ram-thunderbolt-3-i100248310-s1020505491.html?spm=a2a0e.searchlist.list.1.2d4175b7NYj0An&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://images-na.ssl-images-amazon.com/images/I/51uDVSNVktL._SX425_.jpg">
+								</div>
+								<div class="thumb-content">
+									<h4>Dell XPS 9560 15.6</h4>
+									<p class="item-price"> <span>Rs.175,000.00</span></p>
+									<p class="ghn"> <span>Dell XPS 15 9560 Intel Core i7-7700HQ , 16GB, 512GB SSD, 15.6" FHD (1920 x1080) ,NVIDIA® GeForce® GTX 1050 with 4GB GDDR5, Backlit Keyboard Win 10 genuine</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/dell-xps-15-9560-i7-6th-gen16-gb-1tb-2gb-156-touch-laptop-silver-i17616-s53743.html?spm=a2a0e.searchlist.list.3.5170497bb6phZW&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://itti.com.np/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/d/e/dellinspiron15-7373__1_.jpg">
+								</div>
+								<div class="thumb-content">
+									<h4>Dell Inspiron 7573-7019BLK I7</h4>
+									<p class="item-price"><span> Rs.135,000.00</span></p>
+									<p class="ghn"><span>CONVERTIBLE 2-IN-1 Core™ i7-8550U 1.8GHz 256GB SSD 16GB 15.6" 4K (3840x2160) TOUCHSCREEN BT WIN10 Webcam NVIDIA® MX130 2048MB BLACK Stylus Backlit Keyboard. 1 Year Warranty</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/dell-inspiron-5570-i7-8th-gen-8-gb-1-tb-4-gb-graphics-amd-r7-graphics-156-full-hd-laptop-i100014981-s1012803408.html?spm=a2a0e.searchlist.list.5.6fce4560xMxqRg&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>						
+					</div>
+				</div>
+				<div class="item carousel-item">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://itti.com.np/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/0/1/01_hero_r3_675x500_tcm245_2614134_tcm245_2614137_tcm245-2614134.png">
+								</div>
+								<div class="thumb-content">
+									<h4>HP Pavilion 15 Power</h4>
+									<p class="item-price"><span>Rs.125,000.00</span></p>
+									<p class="ghn"><span>HP Pavilion 15-CX0077 GAMING Core™ i7-8750H 2.2GHz 1TB 8GB + 16GB Optane Drive 15.6" (1920x1080) MICRO-EDGE BT WIN10 Webcam NVIDIA® GTX 1060 3072MB Backlit Keyboard</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/hp-pavilion-power-15-i7-7th-gen-1tb-128gb-16gb-4gb-gtx-1050-156-fhd-laptop-i146934-s2191911.html?spm=a2a0e.searchlist.list.3.15fe609eeSHJBt&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://cf.shopee.com.my/file/cfb3ff903fdf9438616ff518924e5408">
+								</div>
+								<div class="thumb-content">
+									<h4>HP 15-DA0073WM </h4>
+									<p class="item-price"><span>Rs.80,000.00</span></p>
+									<p class="ghn"><span>HP 15-DA0073WM TOUCHSMART Intel Core i7-8550U 1.8GHz, 4GB,1TB hdd, 15.6"HD(1366x768) Touchscreen, Intel HD DVDRW windows Genuine</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/hp-pavilion-power-15-i5-7th-gen-8-gb-1-tb-2-gb-radeon-rx-graphics-156-full-hd-gaming-laptop-i147071-s2192349.html?spm=a2a0e.searchlist.list.1.77c012fdJyZWFf&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06018046.png">
+								</div>
+								<div class="thumb-content">
+									<h4>HP OMEN Gaming Laptop</h4>
+									<p class="item-price"> <span> Rs.155,000.00</span></p>
+									<p class="ghn"> <span>HP OMEN 15-CE198 GAMING Core™ i7-8750H 2.2GHz 1TB+256GB SSD 16GB 15.6" (1920x1080) BT WIN10 Webcam NVIDIA® GTX 1060 6144MB Backlit Keyboard</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/hp-omen-15-i7-8th-gen-16gb1tb-hdd256gb-ssd-156fhd-ips-laptop-i7475-s21788.html?spm=a2a0e.searchlist.list.3.e7d224b0knybf8&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>	
+						<div class="col-sm-3">
+							<div class="thumb-wrapper">
+								<div class="img-box">
+									<img src="https://itti.com.np/media/catalog/product/cache/1/image/1800x/040ec09b1e35df139433887a97daa66f/2/-/2-4.png">
+								</div>
+								<div class="thumb-content">
+									<h4>HP Pavilion 15-CW0027 Amd Ryzen3.258</h4>
+									<p class="item-price"><span> Rs.65,000.00</span></p>
+									<p class="ghn"><span>HP Pavilion 15-CW0027 AMD Ryzen™ 3 2200U 2.5GHz 256GB SSD 8GB 15.6" (1366x768) BT WIN10 Webcam AMD Radeon™ Vega 3 SAPPHIRE BLUE</span></p>
+									<div class="star-rating">
+										<ul class="list-inline">
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star"></i></li>
+											<li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+										</ul>
+									</div>
+									<a href="https://www.daraz.com.np/products/hp-pavilion-15-br-i5-7th-gen-8-gb-1-tb-156-hd-x360-convertible-touchscreen-laptop-i146814-s2191375.html?spm=a2a0e.searchlist.list.1.5b2e6c50q5qxMO&search=1" class="btn btn-primary">Add to Cart</a>
+								</div>						
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel controls -->
+			<a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev">
+				<i class="fa fa-angle-left"></i>
+			</a>
+			<a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next">
+				<i class="fa fa-angle-right"></i>
+			</a>
+		</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>  
+{% endblock %}

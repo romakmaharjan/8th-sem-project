@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+{% if error %}
+{{error}}
+<br />
+{% endif%}
+
+<style>
+	h4,
+	h1 {
+		color: white;
+		
+	}
+
+	.box {
+		margin: 20px;
+		text-align: center;
+
+	}
+
+	.titlebox {
+		width: 20%;
+	}
+
+	.bodybox {
+		margin-bottom: 12px;
+		padding: 5px 20px;
+		box-sizing: border-box;
+		background: #D6DBDF;
+		border: 0;
+		outline: none;
+		border-radius: 20px;
+
+
+	}
+
+	.btn {
+		margin-top: 25px;
+		margin-bottom: 20px;
+		padding: 0;
+		height: 40px;
+		background-color: whitesmoke;
+		color: black;
+		font-weight: 400;
+	}
+
+	.btn:hover {
+		background-color: rgb(147, 178, 235);
+	}
+</style>
+
+<div class="box">
+	<h1>Create Form</h1>
+	<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<h4>Title:</h4>
+		<br />
+		<input type="text" name="title" class="titlebox" />
+		<br />
+		<h4>Body:</h4>
+		<br />
+		<textarea name="body" class="bodybox" cols="30" rows="10"></textarea>
+		<br />
+		<h4>URL:</h4>
+		<br />
+		<input type="text" name="url" />
+		<br />
+		<h4>Icon:</h4>
+		<br />
+		<input type="file" name="icon" />
+		<br />
+		<h4>Image:</h4>
+		<br />
+		<input type="file" name="image" />
+		<br />
+
+		<input class="btn btn-primary" type="submit" value="Add Product" />
+	</form>
+</div>
+
+
+
+{% endblock %}

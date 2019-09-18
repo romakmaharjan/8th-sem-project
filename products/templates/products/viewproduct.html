@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for product in products.all %}
+
+<div class="row">
+	<!-- <div class="col-2" onclick="window.location='{% url 'detail' product.id %}';" style="cursor:pointer;">
+		<img id="imgss" src="{{ product.icon.url }}" class="img-fluid" />
+	</div>
+	<div class="col-6" onclick="window.location='{% url 'detail' product.id %}';" style="cursor:pointer;">
+		<div class="card">
+			<h1 id="head1">{{ product.title}}</h1>
+			<p>{{ product.body1 }}</p>
+			<img id="imagee" src="https://img.freepik.com/free-psd/laptop-mock-up-design_1307-45.jpg?size=338&ext=jpg">
+			<div class="container"></div>
+			<div class="col-4">
+				<a href="javascript:{document.getElementById('upvote {{ product.id }}').submit()}"><button
+						class="btn btn-primary btn-lg btn-block"><span class="oi oi-caret-top"></span>Upvote
+						{{ product.votes_total}}</button> </a>
+			</div>
+		</div> -->
+	<div class="column">
+		<div class="col-6" onclick="window.location='{% url 'detail' product.id %}';" style="cursor:pointer;">
+			<div class="card">
+				<img class="card-img-top" src="{{ product.icon.url }}">
+				<div class="card-body">
+					<h1 id="head1">{{ product.title}}</h1>
+					<p>{{ product.body1 }}</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+</div>
+<form id="upvote {{ product.id }}" method="POST" action="{% url 'upvote' product.id %}">
+	{% csrf_token %}
+	<input type="hidden"> </form>
+
+{% endfor %}
+{% endblock %}        
